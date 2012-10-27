@@ -1,4 +1,6 @@
-package com.gardner.gesturesoundboard;
+package com.gardner.drawitlearnit;
+import com.gardner.drawitlearnit.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;

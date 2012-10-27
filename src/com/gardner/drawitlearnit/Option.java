@@ -1,4 +1,4 @@
-package com.gardner.gesturesoundboard;
+package com.gardner.drawitlearnit;
 
 public class Option implements Comparable<Option> {
 	private String name;

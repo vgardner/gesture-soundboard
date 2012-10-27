@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.gardner.gesturesoundboard" android:versionName="1.3"
+	package="com.gardner.drawitlearnit" android:versionName="1.0"
 	android:versionCode="6">
 	<application android:icon="@drawable/icon" android:label="@string/application_name">
 

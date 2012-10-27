@@ -1,8 +1,10 @@
-package com.gardner.gesturesoundboard;
+package com.gardner.drawitlearnit;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+
+import com.gardner.drawitlearnit.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

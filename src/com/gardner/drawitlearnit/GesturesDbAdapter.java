@@ -1,4 +1,4 @@
-package com.gardner.gesturesoundboard;
+package com.gardner.drawitlearnit;
 
 import android.content.ContentValues;
 import android.content.Context;

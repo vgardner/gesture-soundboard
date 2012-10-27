@@ -1,4 +1,4 @@
-package com.gardner.gesturesoundboard;
+package com.gardner.drawitlearnit;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.flurry.android.FlurryAgent;
+import com.gardner.drawitlearnit.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

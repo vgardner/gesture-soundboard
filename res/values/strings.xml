@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- overall -->
-    <string name="application_name">Gesture Soundboard</string>
-    <string name="gestures_list_acitivity_title">Gestures | Gesture Soundboard</string>
-    <string name="add_gesture_activity_title">Add Gesture | Gesture Soundboard</string>
+    <string name="application_name">Draw It Learn It</string>
+    <string name="gestures_list_acitivity_title">Gestures | Draw It Learn It</string>
+    <string name="add_gesture_activity_title">Add Gesture | Draw It Learn It</string>
     <string name="label_create_gesture">Create a gesture</string>
     <string name="about_dialog_text">Thanks for playing around with Gesture Soundboard. More updates coming soon :)\n\n Please send any suggestions or bugs to vcrgardner@gmail.com \n\n Follow me on twitter @_gardner</string>
     <string name="about_dialog_ok">OK</string>

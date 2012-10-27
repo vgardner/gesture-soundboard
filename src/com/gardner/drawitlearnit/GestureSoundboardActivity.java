@@ -1,4 +1,4 @@
-package com.gardner.gesturesoundboard;
+package com.gardner.drawitlearnit;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,6 +42,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
+import com.gardner.drawitlearnit.R;
 
 /**
  * A simple Activity listening for Gestures

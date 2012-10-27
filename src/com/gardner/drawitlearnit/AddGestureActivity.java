@@ -1,10 +1,11 @@
-package com.gardner.gesturesoundboard;
+package com.gardner.drawitlearnit;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.flurry.android.FlurryAgent;
+import com.gardner.drawitlearnit.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

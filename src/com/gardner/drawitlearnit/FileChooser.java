@@ -1,9 +1,11 @@
-package com.gardner.gesturesoundboard;
+package com.gardner.drawitlearnit;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.gardner.drawitlearnit.R;
 
 
 import android.app.ListActivity;

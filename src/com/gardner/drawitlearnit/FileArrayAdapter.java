@@ -1,6 +1,8 @@
-package com.gardner.gesturesoundboard;
+package com.gardner.drawitlearnit;
 
 import java.util.List;
+
+import com.gardner.drawitlearnit.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;
