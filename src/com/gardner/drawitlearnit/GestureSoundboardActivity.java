@@ -11,6 +11,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -42,7 +49,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
-import com.gardner.drawitlearnit.R;
+import com.gardner.drawitlearnit.R.string;
 
 /**
  * A simple Activity listening for Gestures
@@ -235,6 +242,9 @@ public class GestureSoundboardActivity extends Activity {
 			if (toastMessage != null) {
 				toastMessage.cancel();
 			}
+			// Call Pearson Api
+			getPearsonInformation(name);
+			
 			toastMessage = Toast.makeText(GestureSoundboardActivity.this, name,
 					Toast.LENGTH_SHORT);
 			toastMessage.show();
@@ -272,6 +282,34 @@ public class GestureSoundboardActivity extends Activity {
 		}
 	}
 
+	private void getPearsonInformation(String name) {
+		callWebService(name);
+	}
+	
+	public void callWebService(String q){
+		 String URL = "http://www.google.com";  
+		 String result = "";  
+		 String deviceId = "xxxxx" ;   
+		 final String tag = "Your Logcat tag: ";
+		    
+        HttpClient httpclient = new DefaultHttpClient();  
+        HttpGet request = new HttpGet(URL);
+        request.addHeader("deviceId", deviceId);  
+        ResponseHandler<String> handler = new BasicResponseHandler();
+        try {  
+            result = httpclient.execute(request, handler);  
+        } catch (ClientProtocolException e) {  
+            e.printStackTrace();  
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        }  
+        httpclient.getConnectionManager().shutdown();   
+        Log.i(tag, result);
+        toastMessage = Toast.makeText(GestureSoundboardActivity.this, result,
+				Toast.LENGTH_SHORT);
+		toastMessage.show();
+    } // end callWebService()  
+	
 	public void stopAllGestureSounds() {
 		for (MediaPlayer i : soundGestureStack) {
 			try {
