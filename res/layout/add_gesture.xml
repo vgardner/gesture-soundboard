@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#202020">
+    
+    <LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/top_control_bar"
+	android:background="#4682b4">
+
+		<TextView android:text="@string/add_gesture_activity_title" android:textColor="#FFFFFF"
+			android:layout_width="fill_parent" android:gravity="center_vertical|center_horizontal" android:typeface="sans"
+			android:layout_height="40dp" android:paddingTop="3dp" android:textSize="14sp" android:textStyle="bold" />
+	</LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="@android:style/ButtonBar"
+        android:background="#FFFFFF">
+    
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginRight="6dip"
+            android:textColor="#202020"
+            android:text="@string/add_gesture_title"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <EditText
+            android:id="@+id/gesture_name"
+            android:layout_width="0dip"
+            android:layout_weight="1.0"
+            android:layout_height="wrap_content"
+
+            android:maxLength="40"
+            android:singleLine="true" />
+
+    </LinearLayout>
+    
+    <android.gesture.GestureOverlayView
+        android:id="@+id/gestures_overlay"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.0"
+		android:gestureColor="#4682b4"
+        android:gestureStrokeType="multiple" />
+
+    <LinearLayout
+        style="@android:style/ButtonBar"
+        android:background="@android:drawable/bottom_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+		android:textSize="30dp"
+        android:orientation="horizontal">
+
+       <Button
+       		style="@android:style/MediaButton"
+			android:layout_height="fill_parent"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="@string/add_gesture_add_sound"
+            android:textColor="@color/gesture_color"
+            android:id="@+id/btRecord" />
+        <Button
+        	style="@android:style/MediaButton"
+        	android:src="@android:drawable/ic_media_play"
+            android:layout_height="fill_parent"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:textColor="@color/gesture_color"
+            android:text="@string/add_gesture_play" 
+            android:id="@+id/btPlay"
+            android:enabled="false" />
+        </LinearLayout>
+    
+</LinearLayout>

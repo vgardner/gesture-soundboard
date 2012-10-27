@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- overall -->
+    <string name="application_name">Soundboard de Gestos</string>
+    <string name="gestures_list_acitivity_title">Gestos | Soundboard de Gestos</string>
+    <string name="add_gesture_activity_title">Adicionar gesto | Soundboard de Gestos</string>
+    <string name="label_create_gesture">Criar gesto</string>
+    <string name="about_dialog_text">Obrigado por utilizar o Soundboard de Gestos. Em breve mais atualizações :)\n\n Por favor envie sugestões ou bugs para vcrgardner@gmail.com \n\n Me siga no twitter @_gardner</string>
+	<string name="about_dialog_ok">OK</string>
+    
+    <string name="welcome_title">Seja bem-vindo!</string>
+    <string name="welcome_message">Soundboard de Gestos te permite associar sons a diversos gestos, e reproduzi-los desenhando esses gestos nesta tela. \n\nVamos adicionar seu primeiro gesto! \n\nPara iniciar, pressione no botão de Menu and selecione \"Gestos\".</string>
+    <string name="first_gesture_title">Adicione seu primeiro gesto!</string>
+    <string name="first_gesure_text">Desenhe um gesto na área escura, digite um titulo e para adicionar um som, clique em \"Adicionar Som\". \n\nApós isso, pressione no botão de Menu e selecione \"Salvar\"</string>
+    <string name="third_message_title">Muito bem!</string>
+    <string name="third_message_text">Acaba de adicionar seu primeiro gesto! \n\nPara reproduzir seu som, pressione \"OK\" e retorne para a tela de gestos pressionando o botão de Voltar. Repita seu gesto na área escura.</string>
+	<!-- menu -->
+    <string name="menu_add_gesture">Adicionar gesto</string>
+    <string name="menu_gestures_list">Gestos</string>
+    <string name="menu_about">Sobre</string>
+    <string name="menu_search">Pesquisar</string>
+    <string name="menu_stop_all_sounds">Parar todos os sons</string>
+    <!-- dialog -->
+    <string name="about_dialog_title">Sobre o Soundboard de Gestos</string>
+	
+	<string name="gesture_no_gestures_found">Nenhum gesto foi encontrado!</string>
+	<string name="gesture_please_disconnect">Por favor desconecte seu celular do USB.</string>
+	
+    <string name="gesture_list_reload">Recarregar</string>
+    <string name="add_gesture_cancel">Cancelar</string>
+    <string name="add_gesture_save">Salvar</string>
+    <string name="add_gesture_record">Gravar</string>
+    <string name="add_gesture_record_your_sound">Gravar som</string>
+    <string name="add_gesture_recording">Gravando</string>
+    <string name="add_gesture_stop">Parar</string>
+    <string name="add_gesture_sound">Som</string>
+    <string name="add_gesture_add_sound">Adicionar som</string>
+    <string name="add_gesture_sound_chooser">Escolha sua fonte de som</string>
+    <string name="add_gesture_sound_source">Fonte de som</string>
+    <string name="add_gesture_play">Reproduzir</string>
+    <string name="add_gesture_overwrite">Gostaria de sobrescrever seu som atual?</string>
+    <string name="add_gesture_please_add_sound">Gostaria de sobrescrever seu som atual?</string>
+    <string name="add_gesture_yes">Sim</string>
+    <string name="add_gesture_no">Não</string>
+    <string name="add_gesture_choose_file">Cartão SD</string>
+    <string name="add_gesture_another_title">Escolha um outro titulo para seu gesto, \'%s\' já existe na sua lista.</string>
+    <string name="add_gesture_draw_gesture_error">Desenhe seu gesto na área escura.</string>
+    <string name="add_gesture_sound_error">Adicione seu som!  Clique no botão \"Adicionar som\"</string>
+    <string name="add_gesture_save_confirmation">Gostaria de salvar?</string>
+    <string name="filechooser_file_chosen">Arquivo selecionado</string>
+    <string name="filechooser_parent_directory">Diretório pai</string>
+    <string name="filechooser_curr_dir">Diretório atual</string>
+    <string name="filechooser_folder">Pasta</string>
+    <string name="filechooser_file_size">Tamanho do arquivo</string>
+    <string name="filechooser_cancel">Cancelar</string>
+
+    <string name="add_gesture_title">Título</string>
+    <string name="error_missing_name">Digite o título do seu gesto</string>
+    <string name="save_success">Gesto gravado com sucesso!</string>
+    <string name="rename_action">OK</string>
+    <string name="cancel_action">Cancelar</string>
+    <!-- Message displayed when the user opens the gestures settings screen -->
+    <string name="gestures_loading">Carregando gestos...</string>
+    <!-- Message displayed when the user has no gestures -->
+    <string name="gestures_empty">Para adicionar um gesto, clique no seu botão de Menu e selecione \"Adicionar gesto\"</string>
+    <!-- Title of the screen used to view/manage gestures -->
+    <string name="gestures_activity">Gestos</string>
+    <!-- Noun, menu item used to rename a gesture -->
+    <string name="gestures_rename">Renomear</string>
+    <!-- Noun, menu item used to remove a gesture -->
+    <string name="gestures_delete">Excluir</string>
+    <!-- Message displayed when a gesture is successfully deleted -->
+    <string name="gestures_delete_success">Gesto excluído com sucesso.</string>
+    <!-- Title of dialog box -->
+    <string name="gestures_rename_title">Renomear gesto</string>
+    <!-- Label of gesture name field in Rename gesture dialog box -->
+    <string name="gestures_rename_label">Título do gesto</string>
+    <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures -->
+    <string name="gestures_error_loading">%s não pode ser carregado. Tenha certeza que seu USB não esteja conectado.</string>
+</resources>

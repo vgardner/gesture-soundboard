@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--<item android:id="@+id/menu_add_gesture" android:icon="@android:drawable/ic_menu_add"
+		android:title="@string/menu_add_gesture" android:orderInCategory="3" />-->
+	<item android:id="@+id/menu_gestures_list" android:icon="@drawable/ic_gestures_list"
+		android:title="@string/menu_gestures_list" android:orderInCategory="4" />	
+	<item android:id="@+id/menu_about" android:icon="@android:drawable/ic_menu_info_details"
+		android:title="@string/menu_about" android:orderInCategory="5" />
+</menu>

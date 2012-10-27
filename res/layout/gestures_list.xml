@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:id="@+id/gestures_list_view" android:orientation="vertical"
+	android:background="#202020">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/top_control_bar"
+		android:background="#4682b4">
+
+		<TextView android:text="@string/gestures_list_acitivity_title"
+			android:textColor="#FFFFFF" android:layout_width="fill_parent"
+			android:gravity="center_vertical|center_horizontal" android:typeface="sans"
+			android:layout_height="40dp" android:paddingTop="3dp"
+			android:textSize="14sp" android:textStyle="bold" />
+	</LinearLayout>
+	<ListView android:id="@android:id/list" android:layout_width="fill_parent"
+		android:layout_height="0dip" android:layout_weight="1.0"
+		android:background="#202020" android:cacheColorHint="#202020" />
+	<TextView android:id="@android:id/empty" android:layout_width="fill_parent"
+		android:layout_height="0dip" android:layout_weight="1.0"
+
+		android:gravity="center" android:text="@string/gestures_loading"
+		android:textAppearance="?android:attr/textAppearanceMedium" />
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/top_control_bar"
+		android:background="@android:color/transparent" xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:myapp="http://schemas.android.com/apk/res/com.gardner.gesturesoundboard">
+		<com.admob.android.ads.AdView android:id="@+id/ad"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			myapp:backgroundColor="#000000" myapp:primaryTextColor="#FFFFFF"
+			myapp:secondaryTextColor="#CCCCCC" />
+	</LinearLayout>
+
+</LinearLayout>
+

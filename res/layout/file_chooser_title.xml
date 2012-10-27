@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>    
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+android:layout_width="fill_parent"
+	android:layout_height="wrap_content" android:id="@+id/top_control_bar"
+	android:background="#4682b4">
+
+	<TextView android:text="@string/add_gesture_activity_title" android:id="@+id/file_chooser_title"
+		android:textColor="#FFFFFF" android:layout_width="fill_parent"
+		android:gravity="center_vertical|center_horizontal" android:typeface="sans"
+		android:layout_height="40dp" android:paddingTop="3dp"
+		android:textSize="14sp" android:textStyle="bold" />
+</LinearLayout>
+

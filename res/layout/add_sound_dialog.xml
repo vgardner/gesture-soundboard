@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content" android:layout_height="fill_parent"
+	android:orientation="vertical" android:background="#FFFFFF">
+
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginRight="6dip"
+            android:textColor="#202020"
+            android:text="@string/add_gesture_title"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:clickable="true" android:focusable="true" />
+ 
+ 
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginRight="6dip"
+            android:textColor="#202020"
+            android:text="@string/add_gesture_title"
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:clickable="true" android:focusable="true" />
+ 
+
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginRight="6dip"
+            android:textColor="#202020"
+            android:text="@string/add_gesture_title"
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:clickable="true" android:focusable="true" />
+
+</LinearLayout>

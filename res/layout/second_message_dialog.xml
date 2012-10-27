@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:id="@+id/welcome_dialog" android:paddingTop="2dip">
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/top_control_bar">
+		<ImageView android:id="@+id/file_list_icon" android:gravity="center_vertical"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:src="@android:drawable/ic_dialog_info" android:paddingLeft="6dip" android:paddingTop="6dip" android:paddingRight="6dip" />
+			
+		<TextView android:text="@string/first_gesture_title" android:id="@+id/first_gesture_title" android:gravity="center_vertical"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold"
+			android:layout_marginLeft="3dip" android:textColor="#FFFFFF" android:textSize="18sp"></TextView>
+
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/first_gesture_text" android:padding="7dip">
+	<TextView android:text="@string/first_gesure_text"
+		android:textColor="#FFFFFF" android:layout_width="wrap_content"
+		android:gravity="left" android:typeface="sans" android:layout_height="wrap_content"
+		android:textSize="14sp"/>
+     </LinearLayout>
+</LinearLayout>

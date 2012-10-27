@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:id="@+id/welcome_dialog">
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/top_control_bar">
+		<ImageView android:id="@+id/file_list_icon"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:src="@drawable/icon" android:padding="6dip" />
+			
+		<TextView android:text="@string/about_dialog_title" android:id="@+id/about_dialog_title" android:gravity="center_vertical"
+			android:layout_width="wrap_content" android:layout_height="wrap_content" android:textStyle="bold" android:paddingTop="6dip"
+			android:layout_marginLeft="3dip" android:textColor="#4682b4" android:textSize="18sp"></TextView>
+
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/about_text" android:padding="7dip">
+	<TextView android:text="@string/about_dialog_text"
+		android:textColor="#FFFFFF" android:layout_width="wrap_content"
+		android:gravity="left" android:typeface="sans" android:layout_height="wrap_content"
+		android:textSize="14sp"/>
+     </LinearLayout>
+</LinearLayout>

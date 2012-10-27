@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content" android:layout_height="fill_parent"
+	android:orientation="vertical" android:background="@color/dark_gray">
+	<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:background="@color/dark_gray">
+	<ListView android:id="@android:id/list" android:layout_width="fill_parent"
+		android:cacheColorHint="@color/gesture_color" android:layout_height="wrap_content"
+		android:gravity="top" android:background="@color/gesture_color"></ListView>
+		</LinearLayout>
+	<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="fill_parent" android:orientation="horizontal"
+		android:background="@color/dark_gray"></LinearLayout>
+</LinearLayout>

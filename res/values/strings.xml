@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- overall -->
+    <string name="application_name">Gesture Soundboard</string>
+    <string name="gestures_list_acitivity_title">Gestures | Gesture Soundboard</string>
+    <string name="add_gesture_activity_title">Add Gesture | Gesture Soundboard</string>
+    <string name="label_create_gesture">Create a gesture</string>
+    <string name="about_dialog_text">Thanks for playing around with Gesture Soundboard. More updates coming soon :)\n\n Please send any suggestions or bugs to vcrgardner@gmail.com \n\n Follow me on twitter @_gardner</string>
+    <string name="about_dialog_ok">OK</string>
+    
+    <string name="welcome_title">Welcome to Gesture Soundboard!</string>
+    <string name="welcome_message">Gesture Soundboard allows you to associate sounds with different gestures, and then play them by drawing your gestures on this screen. \n\nLet\'s add our first gesture sound! \n\nTo get started press the Menu button and select \"Gestures\".</string>
+    <string name="first_gesture_title">Add your first gesture sound!</string>
+    <string name="first_gesure_text">Draw a gesture on the dark area, enter a title and add a sound by clicking on \"Add Sound\". \n\nAfter that, press the Menu button and select \"Save\"</string>
+    <string name="third_message_title">Well done!</string>
+    <string name="third_message_text">You\'ve just added your first gesture sound. \n\nTo play your sound, press \"OK\" and go to the gesture screen by pressing the Back button. Then, just repeat your gesture!</string>
+    
+	<!-- menu -->
+    <string name="menu_add_gesture">Add gesture</string>
+    <string name="menu_gestures_list">Gestures</string>
+    <string name="menu_about">About</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_stop_all_sounds">Stop all sounds</string>
+    <!-- dialog -->
+    <string name="about_dialog_title">About Gesture Soundboard</string>
+	
+	<string name="gesture_no_gestures_found">No gestures found!</string>
+	<string name="gesture_please_disconnect">Please unmount your phone!</string>
+	
+    <string name="gesture_list_reload">Reload</string>
+    <string name="add_gesture_cancel">Cancel</string>
+    <string name="add_gesture_save">Save</string>
+    <string name="add_gesture_record">Record</string>
+    <string name="add_gesture_record_your_sound">Record sound</string>
+    <string name="add_gesture_recording">Recording</string>
+    <string name="add_gesture_stop">Stop</string>
+    <string name="add_gesture_sound">Sound</string>
+    <string name="add_gesture_add_sound">Add sound</string>
+    <string name="add_gesture_sound_chooser">Choose sound source</string>
+    <string name="add_gesture_sound_source">Sound source</string>
+    <string name="add_gesture_play">Play</string>
+    <string name="add_gesture_overwrite">Would you like to overwrite current sound?</string>
+    <string name="add_gesture_please_add_sound">Would you like to overwrite current sound?</string>
+    <string name="add_gesture_yes">Yes</string>
+    <string name="add_gesture_no">No</string>
+    <string name="add_gesture_choose_file">SD Card</string>
+    <string name="add_gesture_another_title">Choose another title for your gesture, \'%s\' is already taken!</string>
+    <string name="add_gesture_draw_gesture_error">Draw your gesture on the dark area!</string>
+    <string name="add_gesture_sound_error">Add your sound! Just click on the \"Add Sound\" button.</string>
+    <string name="add_gesture_save_confirmation">Would you like to save your gesture sound?</string>
+    <string name="filechooser_file_chosen">Selected file</string>
+    <string name="filechooser_parent_directory">Parent directory</string>
+    <string name="filechooser_curr_dir">Current folder</string>
+    <string name="filechooser_folder">Folder</string>
+    <string name="filechooser_pasta">Folder</string>
+    <string name="filechooser_file_size">File size</string>
+    <string name="filechooser_cancel">Cancel</string>
+
+    <string name="add_gesture_title">Title</string>
+    <string name="error_missing_name">Enter a title for your gesture</string>
+    <string name="save_success">Gesture saved successfully!</string>
+    <string name="rename_action">OK</string>
+    <string name="cancel_action">Cancel</string>
+    <!-- Message displayed when the user opens the gestures settings screen -->
+    <string name="gestures_loading">Loading gestures...</string>
+    <!-- Message displayed when the user has no gestures -->
+    <string name="gestures_empty">To add a new gesture, press the Menu button and select \"Add Gesture\"</string>
+    <!-- Title of the screen used to view/manage gestures -->
+    <string name="gestures_activity">Gestures</string>
+    <!-- Noun, menu item used to rename a gesture -->
+    <string name="gestures_rename">Rename</string>
+    <!-- Noun, menu item used to remove a gesture -->
+    <string name="gestures_delete">Delete</string>
+    <!-- Message displayed when a gesture is successfully deleted -->
+    <string name="gestures_delete_success">Gesture deleted</string>
+    <!-- Title of dialog box -->
+    <string name="gestures_rename_title">Rename gesture</string>
+    <!-- Label of gesture name field in Rename gesture dialog box -->
+    <string name="gestures_rename_label">Gesture name</string>
+    <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures -->
+    <string name="gestures_error_loading">Could not load %s. Make sure you have a mounted SD card.</string>
+
+</resources>
