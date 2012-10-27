@@ -20,6 +20,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -36,6 +37,7 @@ import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -49,7 +51,9 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
-import com.gardner.drawitlearnit.R.string;
+import com.gardner.services.DictionaryEntry;
+import com.gardner.services.Settings;
+import com.gardner.services.LongmanAPIHelper;
 
 /**
  * A simple Activity listening for Gestures
@@ -80,6 +84,7 @@ public class GestureSoundboardActivity extends Activity {
 	SharedPreferences sharedPrefs;
 	boolean messageOne;
 	public static int orientationWhenPaused;
+	private ProgressDialog progressDialog;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -287,28 +292,47 @@ public class GestureSoundboardActivity extends Activity {
 	}
 	
 	public void callWebService(String q){
-		 String URL = "http://www.google.com";  
-		 String result = "";  
-		 String deviceId = "xxxxx" ;   
-		 final String tag = "Your Logcat tag: ";
-		    
-        HttpClient httpclient = new DefaultHttpClient();  
-        HttpGet request = new HttpGet(URL);
-        request.addHeader("deviceId", deviceId);  
-        ResponseHandler<String> handler = new BasicResponseHandler();
-        try {  
-            result = httpclient.execute(request, handler);  
-        } catch (ClientProtocolException e) {  
-            e.printStackTrace();  
-        } catch (IOException e) {  
-            e.printStackTrace();  
-        }  
-        httpclient.getConnectionManager().shutdown();   
-        Log.i(tag, result);
-        toastMessage = Toast.makeText(GestureSoundboardActivity.this, result,
-				Toast.LENGTH_SHORT);
-		toastMessage.show();
-    } // end callWebService()  
+		showProgressDialog();
+		new RetrieveDictionaryEntryTask().execute(null);
+    }
+	private void completeEntryLoad(DictionaryEntry entry) {
+		if (progressDialog != null) {
+			progressDialog.dismiss();
+		}
+		if (entry != null) {
+			String entryText = entry.toString();
+			toastMessage = Toast.makeText(GestureSoundboardActivity.this, entryText,
+					Toast.LENGTH_SHORT);
+			toastMessage.show();
+		} else {
+			String entryText = "Formatting error in returned response. Please try again.";
+			toastMessage = Toast.makeText(GestureSoundboardActivity.this, entryText,
+					Toast.LENGTH_SHORT);
+			toastMessage.show();
+		}
+    }
+    
+	private void showProgressDialog() {
+		progressDialog = ProgressDialog.show(this, "", "Getting stuff...", true);
+	}
+
+     class RetrieveDictionaryEntryTask extends AsyncTask<Void, Void, DictionaryEntry> {
+         @Override
+         protected DictionaryEntry doInBackground(Void... arg0) {
+         	try {
+ 				return new LongmanAPIHelper().getRandomDictionaryEntry();
+ 			} catch (Exception e) {
+ 				Log.w(Settings.LOG_TAG, e.getClass().getSimpleName() + ", " + e.getMessage());
+ 				return null;
+ 			}
+         }
+
+         @Override
+         protected void onPostExecute(DictionaryEntry entry) {
+             completeEntryLoad(entry);
+         }
+
+     }
 	
 	public void stopAllGestureSounds() {
 		for (MediaPlayer i : soundGestureStack) {
