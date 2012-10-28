@@ -10,11 +10,15 @@ public class DictionaryEntry {
 	private final String word;
 	private final String definition;
 	private final String soundPath;
+	private final String imagePath;
+	private final String apiKey = "?apikey=45e3973e9ddc6545af00461e5b744ef6";
+	private final String apiPath = "https://api.pearson.com/longman/dictionary";
 	
-	public DictionaryEntry(String word, String definition, String soundPath) {
+	public DictionaryEntry(String word, String definition, String soundPath, String imagePath) {
 		this.word = word;
 		this.definition = definition;
 		this.soundPath = soundPath;
+		this.imagePath = imagePath;
 	}
 	
 	public String getWord() {
@@ -25,10 +29,13 @@ public class DictionaryEntry {
 		return definition;
 	}
 	public String getSoundPath() {
-		return "https://api.pearson.com/longman/dictionary" + soundPath + "?apikey=45e3973e9ddc6545af00461e5b744ef6";
+		return apiPath + soundPath + apiKey;
+	}
+	public String getImagePath() {
+		return apiPath + imagePath + apiKey;
 	}
 	public String toString() {
-		return word + ": " + definition + ": " + soundPath;
+		return word + ": " + definition + ": " + imagePath;
 	}
 }
 

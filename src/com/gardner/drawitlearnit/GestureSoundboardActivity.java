@@ -1,10 +1,14 @@
 package com.gardner.drawitlearnit;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.HashMap;
@@ -20,6 +24,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -33,6 +38,8 @@ import android.gesture.GestureLibrary;
 import android.gesture.GestureOverlayView;
 import android.gesture.GestureOverlayView.OnGesturePerformedListener;
 import android.gesture.Prediction;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -48,6 +55,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
@@ -306,6 +315,28 @@ public class GestureSoundboardActivity extends Activity {
 			});
 			player.start();
 			
+			// Show image dialog.
+			try {
+				Dialog settingsDialog = new Dialog(this);
+				//ImageView image = (ImageView) settingsDialog.findViewById(R.id.dialog_image);
+				//image.setImageBitmap(getImageBitmap(entry.getImagePath()));
+				settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+				settingsDialog.setContentView(getLayoutInflater().inflate(R.layout.image_dialog
+				        , null));
+				Button dialogButton = (Button) settingsDialog.findViewById(R.id.dialogButtonOK);
+				// if button is clicked, close the custom dialog
+				/*dialogButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						dialog.dismiss();
+					}
+				});*/
+				settingsDialog.show();
+			} catch(NullPointerException e){
+				e.printStackTrace();
+			}
+			
 		} else {
 			String entryText = "Formatting error in returned response. Please try again.";
 			toastMessage = Toast.makeText(GestureSoundboardActivity.this, entryText,
@@ -313,7 +344,36 @@ public class GestureSoundboardActivity extends Activity {
 			toastMessage.show();
 		}
     }
-    
+    private Bitmap getImageBitmap(String imagePath){
+    	URL url;
+    	Bitmap bm = null;
+    	InputStream is = null;
+			try {
+			    url = new URL(imagePath);
+				
+		        URLConnection conn;
+				try {
+					conn = url.openConnection();
+					conn.connect();
+				    is = conn.getInputStream();
+				
+		       
+		        BufferedInputStream bis = new BufferedInputStream(is);
+		        bm = BitmapFactory.decodeStream(bis);
+		
+		        bis.close();
+		        is.close();
+		        
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return bm;
+    }
 	private void showProgressDialog() {
 		progressDialog = ProgressDialog.show(this, "", "Getting stuff...", true);
 	}

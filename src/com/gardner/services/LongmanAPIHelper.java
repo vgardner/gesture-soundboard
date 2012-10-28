@@ -71,6 +71,7 @@ public class LongmanAPIHelper {
 		
 		String description = "";
 		String soundPath = "no path";
+		String imagePath = "no path";
 		if(query == "cat"){
 			JSONObject objectJson = entryJSON.getJSONObject("Entries").getJSONObject(KEY_ENTRY);
 			JSONArray groupArrayJson = objectJson.getJSONArray(KEY_SENSE);
@@ -87,11 +88,12 @@ public class LongmanAPIHelper {
 			
 			JSONArray soundArrayJson = objectJson.getJSONArray("multimedia");
 			soundPath = soundArrayJson.getJSONObject(1).getString("@href");
+			imagePath = soundArrayJson.getJSONObject(3).getString("@href");
 		}
 		return new DictionaryEntry(entryJSON.getJSONObject("Entries").getJSONObject(KEY_ENTRY).
 				getJSONObject(KEY_HEAD).getJSONObject(KEY_WORD).getString(KEY_TEXT),
 				
-				description, soundPath);
+				description, soundPath, imagePath);
 	}
 	
 	// XML Stuff
