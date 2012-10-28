@@ -42,6 +42,7 @@ import android.gesture.Prediction;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
@@ -55,9 +56,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
@@ -321,12 +325,15 @@ public class GestureSoundboardActivity extends Activity {
 			Log.i(Settings.LOG_TAG, entry.getImagePath());
 			try {
 				settingsDialog = new Dialog(this);
-				//ImageView image = (ImageView) settingsDialog.findViewById(R.id.dialog_image);
-				//Bitmap bmImg = getImageBitmap(entry.getImagePath());
-				//image.setImageBitmap(bmImg);
+				
+				// set the custom dialog components - text, image and button
+				
 				settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-				settingsDialog.setContentView(getLayoutInflater().inflate(R.layout.image_dialog
-				        , null));
+				View view = getLayoutInflater().inflate(R.layout.image_dialog
+				        , null);
+				addImageToView(entry.getImagePath(), view);
+				
+				settingsDialog.setContentView(view);
 				settingsDialog.show();
 			} catch(NullPointerException e){
 				e.printStackTrace();
@@ -342,6 +349,30 @@ public class GestureSoundboardActivity extends Activity {
 	public void imageDialogClickHandler(View target) {
 		settingsDialog.dismiss();
     }
+	private void addImageToView(String imagePath, View view){
+		InputStream is = null;
+		String inputurl = imagePath;
+		Drawable avatar = null;
+		try {
+		        URL url = new URL(inputurl);
+		        Object content = url.getContent();
+		        is = (InputStream) content;
+		        avatar = Drawable.createFromStream(is,"src");
+		} catch (MalformedURLException e) {
+		        e.printStackTrace();
+		} catch (IOException e) {
+		        e.printStackTrace();
+		}
+
+		ImageView image = new ImageView(this);
+		LinearLayout.LayoutParams vp = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+		image.setLayoutParams(vp);
+		image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		image.setMaxHeight(500);
+		image.setMaxWidth(500);
+		image.setImageDrawable(avatar);
+		((ViewGroup) view).addView(image);
+	}
     private Bitmap getImageBitmap(String imagePath){
     	URL url;
     	Bitmap bm = null;
