@@ -1,6 +1,10 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent" android:layout_height="fill_parent"
-    android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="500dip" android:layout_height="500dip"
+    android:orientation="vertical" android:onClick="imageDialogClickHandler">
+    <LinearLayout
+	android:layout_height="500dip" android:layout_width="500dip" android:id="@+id/about_text"
+	android:paddingLeft="7dip" android:paddingBottom="15dip" android:paddingRight="7dip">
+	</LinearLayout>
     <!--<ImageView android:layout_width="wrap_content" 
         android:layout_height="wrap_content" android:src="@+id/dialog_image"/>-->
      <!--<TextView
@@ -8,4 +12,4 @@
          android:text="@+id/random_test" />-->
     <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:text="OK"  android:src="@+id/dialogButtonOK" android:onClick="imageDialogClickHandler"/>
-</LinearLayout>
+</RelativeLayout>

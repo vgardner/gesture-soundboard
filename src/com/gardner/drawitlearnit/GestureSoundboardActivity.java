@@ -61,6 +61,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -319,7 +320,7 @@ public class GestureSoundboardActivity extends Activity {
 					mp.release();
 				}
 			});
-			//player.start();
+			player.start();
 			
 			// Show image dialog.
 			Log.i(Settings.LOG_TAG, entry.getImagePath());
@@ -331,6 +332,7 @@ public class GestureSoundboardActivity extends Activity {
 				settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 				View view = getLayoutInflater().inflate(R.layout.image_dialog
 				        , null);
+				
 				addImageToView(entry.getImagePath(), view);
 				
 				settingsDialog.setContentView(view);
@@ -367,7 +369,7 @@ public class GestureSoundboardActivity extends Activity {
 		ImageView image = new ImageView(this);
 		LinearLayout.LayoutParams vp = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 		image.setLayoutParams(vp);
-		image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		image.setScaleType(ImageView.ScaleType.FIT_XY);
 		image.setMaxHeight(500);
 		image.setMaxWidth(500);
 		image.setImageDrawable(avatar);
