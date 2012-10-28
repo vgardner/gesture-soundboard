@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -282,6 +283,7 @@ public class GestureSoundboardActivity extends Activity {
 		showProgressDialog();
 		new RetrieveDictionaryEntryTask().execute(q);
     }
+	Dialog settingsDialog;
 	private void completeEntryLoad(DictionaryEntry entry) {
 		if (progressDialog != null) {
 			progressDialog.dismiss();
@@ -313,25 +315,18 @@ public class GestureSoundboardActivity extends Activity {
 					mp.release();
 				}
 			});
-			player.start();
+			//player.start();
 			
 			// Show image dialog.
+			Log.i(Settings.LOG_TAG, entry.getImagePath());
 			try {
-				Dialog settingsDialog = new Dialog(this);
+				settingsDialog = new Dialog(this);
 				//ImageView image = (ImageView) settingsDialog.findViewById(R.id.dialog_image);
-				//image.setImageBitmap(getImageBitmap(entry.getImagePath()));
+				//Bitmap bmImg = getImageBitmap(entry.getImagePath());
+				//image.setImageBitmap(bmImg);
 				settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 				settingsDialog.setContentView(getLayoutInflater().inflate(R.layout.image_dialog
 				        , null));
-				Button dialogButton = (Button) settingsDialog.findViewById(R.id.dialogButtonOK);
-				// if button is clicked, close the custom dialog
-				/*dialogButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						dialog.dismiss();
-					}
-				});*/
 				settingsDialog.show();
 			} catch(NullPointerException e){
 				e.printStackTrace();
@@ -344,13 +339,15 @@ public class GestureSoundboardActivity extends Activity {
 			toastMessage.show();
 		}
     }
+	public void imageDialogClickHandler(View target) {
+		settingsDialog.dismiss();
+    }
     private Bitmap getImageBitmap(String imagePath){
     	URL url;
     	Bitmap bm = null;
     	InputStream is = null;
 			try {
 			    url = new URL(imagePath);
-				
 		        URLConnection conn;
 				try {
 					conn = url.openConnection();
@@ -358,12 +355,11 @@ public class GestureSoundboardActivity extends Activity {
 				    is = conn.getInputStream();
 				
 		       
-		        BufferedInputStream bis = new BufferedInputStream(is);
-		        bm = BitmapFactory.decodeStream(bis);
-		
-		        bis.close();
-		        is.close();
-		        
+			        BufferedInputStream bis = new BufferedInputStream(is);
+			        bm = BitmapFactory.decodeStream(bis);
+			
+			        bis.close();
+			        is.close();	        
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -374,6 +370,30 @@ public class GestureSoundboardActivity extends Activity {
 		}
         return bm;
     }
+    
+    Bitmap downloadFile(String fileUrl){
+          URL myFileUrl =null;          
+          Bitmap bmImg = null;
+          try {
+               myFileUrl= new URL(fileUrl);
+          } catch (MalformedURLException e) {
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+          }
+          try {
+               HttpURLConnection conn= (HttpURLConnection)myFileUrl.openConnection();
+               conn.setDoInput(true);
+               conn.connect();
+               InputStream is = conn.getInputStream();
+               
+               bmImg = BitmapFactory.decodeStream(is);
+          } catch (IOException e) {
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+          }
+          return bmImg;
+     }
+    
 	private void showProgressDialog() {
 		progressDialog = ProgressDialog.show(this, "", "Getting stuff...", true);
 	}

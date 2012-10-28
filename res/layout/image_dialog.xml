@@ -4,5 +4,5 @@
     <!--<ImageView android:layout_width="wrap_content" 
         android:layout_height="wrap_content" android:src="@+id/dialog_image"/>-->
     <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="OK"  android:src="@+id/dialogButtonOK"/>
+        android:text="OK"  android:src="@+id/dialogButtonOK" android:onClick="imageDialogClickHandler"/>
 </LinearLayout>
