@@ -14,9 +14,10 @@
 	</LinearLayout>
 
 	<android.gesture.GestureOverlayView
-		android:id="@+id/gestures" android:background="#202020"
+		android:id="@+id/gestures"
 		android:layout_width="fill_parent" android:layout_height="0dip"
-		android:layout_weight="1.0" android:gestureStrokeType="multiple" />
+		android:layout_weight="1.0" android:gestureStrokeType="multiple"
+		android:background="@drawable/background_image2" />
 
 	<LinearLayout android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:id="@+id/top_control_bar"

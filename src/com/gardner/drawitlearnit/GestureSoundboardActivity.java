@@ -139,7 +139,7 @@ public class GestureSoundboardActivity extends Activity {
 		}
 		GestureOverlayView gestures = (GestureOverlayView) findViewById(R.id.gestures);
 		gestures.addOnGesturePerformedListener(handleGestureListener);
-		gestures.setGestureColor(Color.LTGRAY);
+		gestures.setGestureColor(Color.BLUE);
 	}
 
 	@Override
