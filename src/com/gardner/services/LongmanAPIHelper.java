@@ -89,7 +89,7 @@ public class LongmanAPIHelper {
 			soundPath = soundArrayJson.getJSONObject(1).getString("@href");
 		}
 		return new DictionaryEntry(entryJSON.getJSONObject("Entries").getJSONObject(KEY_ENTRY).
-				getJSONObject(KEY_HEAD).getJSONObject(KEY_WORD).getString(KEY_TEXT), 
+				getJSONObject(KEY_HEAD).getJSONObject(KEY_WORD).getString(KEY_TEXT),
 				
 				description, soundPath);
 	}

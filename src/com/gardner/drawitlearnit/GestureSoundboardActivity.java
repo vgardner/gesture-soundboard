@@ -254,29 +254,6 @@ public class GestureSoundboardActivity extends Activity {
 			toastMessage = Toast.makeText(GestureSoundboardActivity.this, name,
 					Toast.LENGTH_SHORT);
 			toastMessage.show();
-			MediaPlayer player = new MediaPlayer();
-			try {
-				player.setDataSource(path);
-				player.prepare();
-				soundGestureStack.add(player);
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			player.setOnCompletionListener(new OnCompletionListener() {
-
-				@Override
-				public void onCompletion(MediaPlayer mp) {
-					mp.release();
-				}
-			});
-			//player.start();
 		} else {
 			if (toastMessage != null) {
 				toastMessage.cancel();
@@ -305,6 +282,30 @@ public class GestureSoundboardActivity extends Activity {
 			toastMessage = Toast.makeText(GestureSoundboardActivity.this, entryText,
 					Toast.LENGTH_SHORT);
 			toastMessage.show();
+			
+			MediaPlayer player = new MediaPlayer();
+			try {
+				player.setDataSource(entry.getSoundPath());
+				player.prepare();
+				//soundGestureStack.add(player);
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			player.setOnCompletionListener(new OnCompletionListener() {
+				@Override
+				public void onCompletion(MediaPlayer mp) {
+					mp.release();
+				}
+			});
+			player.start();
+			
 		} else {
 			String entryText = "Formatting error in returned response. Please try again.";
 			toastMessage = Toast.makeText(GestureSoundboardActivity.this, entryText,

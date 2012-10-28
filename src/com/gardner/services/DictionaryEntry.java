@@ -24,7 +24,9 @@ public class DictionaryEntry {
 	public String getDefinition() {
 		return definition;
 	}
-	
+	public String getSoundPath() {
+		return "https://api.pearson.com/longman/dictionary" + soundPath + "?apikey=45e3973e9ddc6545af00461e5b744ef6";
+	}
 	public String toString() {
 		return word + ": " + definition + ": " + soundPath;
 	}
