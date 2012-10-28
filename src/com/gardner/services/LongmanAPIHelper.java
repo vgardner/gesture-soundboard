@@ -1,5 +1,6 @@
 package com.gardner.services;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,7 +17,7 @@ import com.gardner.services.Settings;
 public class LongmanAPIHelper {
 
 	private static final String URL_PREFIX = 
-		"https://api.pearson.com/longman/dictionary/entry/random.json?apikey=";
+		"https://api.pearson.com/longman/dictionary/entry.json?apikey=";
 
 	private static final String KEY_ENTRY = "Entry";
 	private static final String KEY_HEAD = "Head"; 
@@ -33,9 +34,9 @@ public class LongmanAPIHelper {
 		return s;
 	}
 		
-	public DictionaryEntry getRandomDictionaryEntry() throws Exception {
+	public DictionaryEntry getRandomDictionaryEntry(String query) throws Exception {
 		
-		String url = URL_PREFIX + Settings.API_KEY;
+		String url = URL_PREFIX + Settings.API_KEY + "&q=" + query;
 		HTTPSCall call = new HTTPSCall(url);
 		Log.i(Settings.LOG_TAG, url);
 		return deserializeDictionaryEntry(call.doRemoteCall());
@@ -49,17 +50,24 @@ public class LongmanAPIHelper {
 			JSONObject entryJSON = new JSONObject(entryJSONAsString);
 			entry = deserializeEntry(entryJSON);
 		} catch (JSONException e) {
+			Log.i(Settings.LOG_TAG, "Couldn't parse it.");
 			throw new RuntimeException(e);
 		}
 		return entry;
 	}
 	
 	private DictionaryEntry deserializeEntry(JSONObject entryJSON) throws Exception {
-		return new DictionaryEntry(entryJSON.getJSONObject(KEY_ENTRY).
+		
+		String description;
+		
+		JSONObject objectJson = entryJSON.getJSONObject("Entries").getJSONObject(KEY_ENTRY);
+		JSONArray groupArrayJson = objectJson.getJSONArray(KEY_SENSE);
+		JSONObject objectJson2 = groupArrayJson.getJSONObject(0);
+		
+		return new DictionaryEntry(entryJSON.getJSONObject("Entries").getJSONObject(KEY_ENTRY).
 				getJSONObject(KEY_HEAD).getJSONObject(KEY_WORD).getString(KEY_TEXT), 
 				
-				entryJSON.getJSONObject(KEY_ENTRY).getJSONObject(KEY_SENSE).
-				getJSONObject(KEY_DEFINITION).getString(KEY_TEXT));
+				objectJson2.getJSONObject(KEY_DEFINITION).getString(KEY_TEXT));
 	}
 
 }

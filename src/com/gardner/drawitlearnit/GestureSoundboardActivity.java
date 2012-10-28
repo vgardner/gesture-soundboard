@@ -84,6 +84,7 @@ public class GestureSoundboardActivity extends Activity {
 	SharedPreferences sharedPrefs;
 	boolean messageOne;
 	public static int orientationWhenPaused;
+	public static String query = "lizard";
 	private ProgressDialog progressDialog;
 
 	@Override
@@ -293,7 +294,7 @@ public class GestureSoundboardActivity extends Activity {
 	
 	public void callWebService(String q){
 		showProgressDialog();
-		new RetrieveDictionaryEntryTask().execute(null);
+		new RetrieveDictionaryEntryTask().execute(q);
     }
 	private void completeEntryLoad(DictionaryEntry entry) {
 		if (progressDialog != null) {
@@ -316,11 +317,12 @@ public class GestureSoundboardActivity extends Activity {
 		progressDialog = ProgressDialog.show(this, "", "Getting stuff...", true);
 	}
 
-     class RetrieveDictionaryEntryTask extends AsyncTask<Void, Void, DictionaryEntry> {
+    protected class RetrieveDictionaryEntryTask extends AsyncTask<String, Void, DictionaryEntry> {
          @Override
-         protected DictionaryEntry doInBackground(Void... arg0) {
+         protected DictionaryEntry doInBackground(String... params) {
+        	Log.w(Settings.LOG_TAG, "BALBALBABL" + params[0]);
          	try {
- 				return new LongmanAPIHelper().getRandomDictionaryEntry();
+ 				return new LongmanAPIHelper().getRandomDictionaryEntry(params[0]);
  			} catch (Exception e) {
  				Log.w(Settings.LOG_TAG, e.getClass().getSimpleName() + ", " + e.getMessage());
  				return null;
@@ -331,7 +333,6 @@ public class GestureSoundboardActivity extends Activity {
          protected void onPostExecute(DictionaryEntry entry) {
              completeEntryLoad(entry);
          }
-
      }
 	
 	public void stopAllGestureSounds() {
