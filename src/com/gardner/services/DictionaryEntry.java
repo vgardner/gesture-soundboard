@@ -9,10 +9,12 @@ public class DictionaryEntry {
 
 	private final String word;
 	private final String definition;
+	private final String soundPath;
 	
-	public DictionaryEntry(String word, String definition) {
+	public DictionaryEntry(String word, String definition, String soundPath) {
 		this.word = word;
 		this.definition = definition;
+		this.soundPath = soundPath;
 	}
 	
 	public String getWord() {
@@ -24,7 +26,7 @@ public class DictionaryEntry {
 	}
 	
 	public String toString() {
-		return word + ": " + definition;
+		return word + ": " + definition + ": " + soundPath;
 	}
 }
 

@@ -276,7 +276,7 @@ public class GestureSoundboardActivity extends Activity {
 					mp.release();
 				}
 			});
-			player.start();
+			//player.start();
 		} else {
 			if (toastMessage != null) {
 				toastMessage.cancel();
