@@ -337,6 +337,9 @@ public class GestureSoundboardActivity extends Activity {
 				
 				settingsDialog.setContentView(view);
 				settingsDialog.show();
+				toastMessage = Toast.makeText(GestureSoundboardActivity.this, entry.getDefinition(),
+						Toast.LENGTH_LONG);
+				toastMessage.show();
 			} catch(NullPointerException e){
 				e.printStackTrace();
 			}
