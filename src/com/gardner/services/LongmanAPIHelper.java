@@ -46,7 +46,7 @@ public class LongmanAPIHelper {
 		
 	public DictionaryEntry getRandomDictionaryEntry(String query) throws Exception {
 		
-		String url = URL_PREFIX + Settings.API_KEY + "&q=" + query;
+		String url = URL_PREFIX + Settings.API_KEY + "&q=" + query.trim();
 		HTTPSCall call = new HTTPSCall(url);
 		Log.i(Settings.LOG_TAG, url);
 		
